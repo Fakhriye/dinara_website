@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dinara-bg: #0A192F;       /* Глубокий Navy Blue для фона */
+  --color-dinara-surface: #112240;  /* Чуть более светлый синий для карточек и секций */
+  --color-dinara-accent: #007AFF;   /* Акцентный синий Apple */
+}
