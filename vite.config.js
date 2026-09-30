@@ -7,9 +7,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        features: resolve(__dirname, 'features.html'),
-        about: resolve(__dirname, 'about.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        features: resolve(import.meta.dirname, 'features.html'),
+        about: resolve(import.meta.dirname, 'about.html'),
       },
     },
   },

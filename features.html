@@ -9,11 +9,14 @@
 <body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
 
   <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full border-b border-dinara-surface">
-    <div class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="/src/assets/logo.png" alt="Dinara AI Logo" class="w-10 h-10 rounded-xl bg-white p-1">
+      <span class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
+    </a>
     <div class="hidden md:flex gap-8 text-sm font-medium">
       <a href="index.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_home">Главная</a>
-      <a href="features.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
-      <a href="about.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
+      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
+      <a href="about.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
     </div>
     <div class="flex items-center gap-4">
       <button id="lang-switch" class="text-sm font-semibold uppercase bg-dinara-surface px-3 py-1.5 rounded-lg border border-gray-800 hover:border-dinara-accent transition">KZ</button>
@@ -49,11 +52,14 @@
     </div>
   </main>
 
-  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto w-full">
+  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-      <div>
-        <div class="text-xl font-bold tracking-tight mb-1">Dinara<span class="text-dinara-accent">.</span>AI</div>
-        <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+      <div class="flex items-center gap-3">
+        <img src="/src/assets/logo.png" alt="Dinara AI Logo" class="w-8 h-8 rounded-lg bg-white p-1">
+        <div>
+          <div class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
+          <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+        </div>
       </div>
       <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-400 items-center">
         <a href="mailto:contact@dinara.company" class="hover:text-dinara-accent transition">contact@dinara.company</a>
