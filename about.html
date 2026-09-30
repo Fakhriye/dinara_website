@@ -3,59 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>О компании | Dinara AI</title>
+  <title data-i18n="title">О компании | Dinara AI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dinara-bg text-white font-sans antialiased">
+<body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
 
-  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto border-b border-dinara-surface">
+  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full border-b border-dinara-surface">
     <div class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
     <div class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="index.html" class="text-gray-400 hover:text-dinara-accent transition">Главная</a>
-      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition">Возможности</a>
-      <a href="about.html" class="text-white hover:text-dinara-accent transition">О компании</a>
+      <a href="index.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_home">Главная</a>
+      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
+      <a href="about.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
     </div>
     <div class="flex items-center gap-4">
-      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">Связаться</a>
+      <button id="lang-switch" class="text-sm font-semibold uppercase bg-dinara-surface px-3 py-1.5 rounded-lg border border-gray-800 hover:border-dinara-accent transition">KZ</button>
+      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition" data-i18n="nav_contact">Связаться</a>
     </div>
   </nav>
 
-  <main class="max-w-7xl mx-auto px-8 py-20">
+  <main class="max-w-7xl mx-auto px-8 py-20 flex-grow">
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">Освобождаем время для <span class="text-dinara-accent">важных задач</span></h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">
+        <span data-i18n="ab_t1">Освобождаем время для</span> <span class="text-dinara-accent" data-i18n="ab_t2">важных задач</span>
+      </h1>
       
       <div class="text-gray-300 space-y-6 text-lg leading-relaxed mb-16">
-        <p>Идея создания <strong>Dinara AI</strong> родилась летом во время стажировки в аутсорсинговой бухгалтерской компании Impec Accounting. Работая над составлением отчетов, мы заметили, как много времени высококлассные специалисты тратят на рутинный сбор информации из документов.</p>
-        <p>Важные задачи, требующие критического и стратегического взгляда, часто откладывались из-за механической работы. Мы поняли, что ИИ не должен заменять бухгалтеров — он должен стать их главным инструментом, забирая на себя рутину.</p>
+        <p data-i18n="ab_p1">Идея создания Dinara AI родилась летом во время стажировки в аутсорсинговой бухгалтерской компании Impec Accounting. Работая над составлением отчетов, мы заметили, как много времени высококлассные специалисты тратят на рутинный сбор информации из документов.</p>
+        <p data-i18n="ab_p2">Важные задачи, требующие критического и стратегического взгляда, часто откладывались из-за механической работы. Мы поняли, что ИИ не должен заменять бухгалтеров — он должен стать их главным инструментом, забирая на себя рутину.</p>
       </div>
 
-      <h2 class="text-3xl font-bold mb-8 border-b border-dinara-surface pb-4">Команда</h2>
+      <h2 class="text-3xl font-bold mb-8 border-b border-dinara-surface pb-4" data-i18n="team_h">Команда</h2>
       <div class="grid md:grid-cols-2 gap-6 mb-16">
         <div class="bg-dinara-surface p-6 rounded-xl border border-gray-800">
           <div class="text-xl font-bold mb-1">Фахри</div>
           <div class="text-dinara-accent text-sm font-medium mb-3">Co-Founder</div>
-          <p class="text-gray-400 text-sm">Проходила стажировку как программист 1С. Объединила глубокие технические алгоритмы с реальными бизнес-процессами рынка СНГ, создав продукт, который решает задачи бизнеса изнутри.</p>
+          <p class="text-gray-400 text-sm" data-i18n="team_f_d">Проходила стажировку как программист 1С. Объединила глубокие технические алгоритмы с реальными бизнес-процессами рынка СНГ, создав продукт, который решает задачи бизнеса изнутри.</p>
         </div>
         <div class="bg-dinara-surface p-6 rounded-xl border border-gray-800">
           <div class="text-xl font-bold mb-1">Айша</div>
           <div class="text-dinara-accent text-sm font-medium mb-3">Co-Founder</div>
-          <p class="text-gray-400 text-sm">Стажировалась в аутсорсинговой бухгалтерской компании Impec Accounting. На практике столкнулась с рутиной и неэффективностью ручного сбора отчетов, что стало импульсом к созданию продукта. Отвечает за продуктовую стратегию и внедрение.</p>
+          <p class="text-gray-400 text-sm" data-i18n="team_a_d">Стажировалась в аутсорсинговой бухгалтерской компании Impec Accounting. На практике столкнулась с рутиной и неэффективностью ручного сбора отчетов, что стало импульсом к созданию продукта. Отвечает за продуктовую стратегию и внедрение.</p>
         </div>
       </div>
 
-      <h2 class="text-3xl font-bold mb-8 border-b border-dinara-surface pb-4">Поддержка</h2>
+      <h2 class="text-3xl font-bold mb-8 border-b border-dinara-surface pb-4" data-i18n="sup_h">Поддержка</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-dinara-surface p-6 rounded-xl border border-gray-800">
-          <div class="text-xl font-bold mb-1">Технический ментор</div>
-          <p class="text-gray-400 text-sm mt-2">Обеспечивает контроль архитектуры и безопасность связки HTTP-сервисов с базами 1С.</p>
+          <div class="text-xl font-bold mb-1" data-i18n="sup_t_t">Технический ментор</div>
+          <p class="text-gray-400 text-sm mt-2" data-i18n="sup_t_d">Обеспечивает контроль архитектуры и безопасность связки HTTP-сервисов с базами 1С.</p>
         </div>
         <div class="bg-dinara-surface p-6 rounded-xl border border-gray-800">
-          <div class="text-xl font-bold mb-1">Финансовый ментор</div>
-          <p class="text-gray-400 text-sm mt-2">Консультирует по вопросам учета и актуальности формируемых бизнес-моделей.</p>
+          <div class="text-xl font-bold mb-1" data-i18n="sup_f_t">Финансовый ментор</div>
+          <p class="text-gray-400 text-sm mt-2" data-i18n="sup_f_d">Консультирует по вопросам учета и актуальности формируемых бизнес-моделей.</p>
         </div>
       </div>
     </div>
   </main>
+
+  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto w-full">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+      <div>
+        <div class="text-xl font-bold tracking-tight mb-1">Dinara<span class="text-dinara-accent">.</span>AI</div>
+        <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-400 items-center">
+        <a href="mailto:contact@dinara.company" class="hover:text-dinara-accent transition">contact@dinara.company</a>
+        <span class="hidden sm:inline text-gray-700">|</span>
+        <span data-i18n="footer_location">Алматы, Казахстан</span>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="/src/main.js"></script>
 </body>
