@@ -5,6 +5,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [tailwindcss()],
   build: {
+    assetsInlineLimit: 0, // <--- Эта строчка запрещает Vite ломать картинки
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
