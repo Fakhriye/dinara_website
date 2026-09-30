@@ -1,62 +1,84 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dinara AI | Интеллектуальный помощник для 1С</title>
+  <title data-i18n="title">Dinara AI | Интеллектуальный помощник для 1С</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dinara-bg text-white font-sans antialiased">
+<body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
 
   <!-- Навигация -->
-  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
     <div class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
     <div class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="index.html" class="text-white hover:text-dinara-accent transition">Главная</a>
-      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition">Возможности</a>
-      <a href="about.html" class="text-gray-400 hover:text-dinara-accent transition">О компании</a>
+      <a href="index.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_home">Главная</a>
+      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
+      <a href="about.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
     </div>
     <div class="flex items-center gap-4">
-      <button id="lang-switch" class="text-sm font-semibold uppercase hover:text-dinara-accent transition">KZ</button>
-      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
-        Связаться
-      </a>
+      <button id="lang-switch" class="text-sm font-semibold uppercase bg-dinara-surface px-3 py-1.5 rounded-lg border border-gray-800 hover:border-dinara-accent transition">KZ</button>
+      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition" data-i18n="nav_contact">Связаться</a>
     </div>
   </nav>
 
   <!-- Главный Hero блок -->
-  <main class="max-w-7xl mx-auto px-8 py-24 text-center">
-    <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
-      Управление бизнесом <br />
-      <span class="text-dinara-accent">в один клик.</span>
+  <main class="max-w-7xl mx-auto px-8 py-16 md:py-24 text-center flex-grow">
+    <!-- Бейдж тракции -->
+    <div class="inline-flex items-center gap-2 bg-dinara-surface border border-gray-800 px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-8 text-gray-300">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span data-i18n="badge_text">Уже заключены сделки с 8 компаниями на $24,000</span>
+    </div>
+
+    <h1 class="text-4xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
+      <span data-i18n="hero_title_1">Управление бизнесом</span> <br />
+      <span class="text-dinara-accent" data-i18n="hero_title_2">в один клик через ИИ.</span>
     </h1>
-    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-      Telegram-бот, который интегрируется с вашей 1С. Получайте отчеты, управляйте заказами и анализируйте данные с помощью ИИ, не открывая десктопную программу.
+    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-i18n="hero_desc">
+      Интеллектуальный Telegram-бот, который нативно интегрируется с вашей 1С. Создавайте отчеты, управляйте счетами и анализируйте продажи прямо со смартфона.
     </p>
-    <div class="flex justify-center gap-4">
-      <a href="mailto:contact@dinara.company" class="bg-dinara-accent text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-600 transition shadow-[0_0_20px_rgba(0,122,255,0.3)]">
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="mailto:contact@dinara.company" class="bg-dinara-accent text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-600 transition shadow-[0_0_25px_rgba(0,122,255,0.3)]" data-i18n="btn_apply">
         Оставить заявку
+      </a>
+      <a href="features.html" class="bg-dinara-surface border border-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:border-gray-600 transition" data-i18n="btn_features">
+        Узнать больше
       </a>
     </div>
   </main>
 
   <!-- Блок со счетчиками -->
-  <section id="stats" class="bg-dinara-surface py-16">
+  <section id="stats" class="bg-dinara-surface border-y border-gray-800/60 py-16">
     <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
       <div>
         <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="24000">0</span>$</div>
-        <div class="text-sm text-gray-400 font-medium">Оцифровано процессов на сумму</div>
+        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_1">Объем оцифрованных процессов</div>
       </div>
       <div>
         <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="8">0</span>+</div>
-        <div class="text-sm text-gray-400 font-medium">Крупных компаний доверяют нам</div>
+        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_2">Крупных компаний доверяют нам</div>
       </div>
       <div>
         <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="80">0</span>%</div>
-        <div class="text-sm text-gray-400 font-medium">Экономии времени на рутине</div>
+        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_3">Экономии времени на рутине</div>
       </div>
     </div>
   </section>
+
+  <!-- Футер (Шапка внизу) -->
+  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+      <div>
+        <div class="text-xl font-bold tracking-tight mb-1">Dinara<span class="text-dinara-accent">.</span>AI</div>
+        <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-400 items-center">
+        <a href="mailto:contact@dinara.company" class="hover:text-dinara-accent transition">contact@dinara.company</a>
+        <span class="hidden sm:inline text-gray-700">|</span>
+        <span data-i18n="footer_location">Алматы, Казахстан</span>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="/src/main.js"></script>
 </body>
