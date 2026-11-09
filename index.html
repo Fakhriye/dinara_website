@@ -16,6 +16,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css" />
+  <!-- Tells Google who runs Dinara AI, so the site can show up for the founders' names -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Dinara AI",
+      "alternateName": "Динара AI",
+      "email": "contact@dinara.company",
+      "description": "Telegram assistant for businesses on 1C: stock, invoices and sales analytics in one chat.",
+      "foundingLocation": { "@type": "Place", "name": "Almaty, Kazakhstan" },
+      "founder": [
+        { "@type": "Person", "name": "Fakhri Kubysheva", "alternateName": ["Fakhriye Kubysheva", "Фахри Кубышева"], "jobTitle": "Co-Founder & Tech Lead" },
+        { "@type": "Person", "name": "Aisha Tortkara", "alternateName": "Айша Торткара", "jobTitle": "Co-Founder & Finance Lead" }
+      ]
+    }
+  </script>
 </head>
 <body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:text-dinara-bg focus:px-4 focus:py-2 focus:rounded-lg" data-i18n="skip">Перейти к содержанию</a>

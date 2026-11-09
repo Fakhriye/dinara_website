@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="title_about">О компании — Dinara AI</title>
-  <meta name="description" content="История Dinara AI: как стажировка в бухгалтерской компании превратилась в Telegram-ассистента для 1С. Команда и наставники." />
+  <meta name="description" content="Dinara AI основали Фахри Кубышева (Fakhri Kubysheva, Tech Lead) и Айша Торткара (Aisha Tortkara, Finance Lead): как стажировка в Impec Accounting превратилась в Telegram-ассистента для 1С." />
   <meta property="og:title" content="О компании — Dinara AI" />
-  <meta property="og:description" content="История Dinara AI: как стажировка в бухгалтерской компании превратилась в Telegram-ассистента для 1С. Команда и наставники." />
+  <meta property="og:description" content="Dinara AI основали Фахри Кубышева (Fakhri Kubysheva, Tech Lead) и Айша Торткара (Aisha Tortkara, Finance Lead): как стажировка в Impec Accounting превратилась в Telegram-ассистента для 1С." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/logo.png" />
   <meta name="theme-color" content="#0A192F" />
@@ -16,6 +16,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css" />
+  <!-- Tells Google who runs Dinara AI, so the site can show up for the founders' names -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Dinara AI",
+      "alternateName": "Динара AI",
+      "email": "contact@dinara.company",
+      "description": "Telegram assistant for businesses on 1C: stock, invoices and sales analytics in one chat.",
+      "foundingLocation": { "@type": "Place", "name": "Almaty, Kazakhstan" },
+      "founder": [
+        { "@type": "Person", "name": "Fakhri Kubysheva", "alternateName": ["Fakhriye Kubysheva", "Фахри Кубышева"], "jobTitle": "Co-Founder & Tech Lead" },
+        { "@type": "Person", "name": "Aisha Tortkara", "alternateName": "Айша Торткара", "jobTitle": "Co-Founder & Finance Lead" }
+      ]
+    }
+  </script>
 </head>
 <body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:text-dinara-bg focus:px-4 focus:py-2 focus:rounded-lg" data-i18n="skip">Перейти к содержанию</a>
@@ -73,7 +89,7 @@
         <h2 class="text-sm font-semibold text-gray-400" data-i18n="team_h">Команда</h2>
         <div class="max-w-2xl border-b border-dinara-line">
           <article class="grid grid-cols-[5.5rem_1fr] gap-5 py-8 border-t border-dinara-line">
-            <img src="/team/fakhri.jpg" alt="Фахри Кубышева" width="88" height="88" class="w-[5.5rem] h-[5.5rem] rounded-2xl object-cover bg-dinara-surface" loading="lazy">
+            <img src="/team/fakhri.jpg" alt="Фахри Кубышева (Fakhri Kubysheva)" width="88" height="88" class="w-[5.5rem] h-[5.5rem] rounded-2xl object-cover bg-dinara-surface" loading="lazy">
             <div>
               <h3 class="text-xl font-semibold" data-i18n="team_f_n">Фахри Кубышева</h3>
               <p class="text-sm font-medium text-dinara-link mt-0.5">Co-Founder &amp; Tech Lead</p>
@@ -81,7 +97,7 @@
             </div>
           </article>
           <article class="grid grid-cols-[5.5rem_1fr] gap-5 py-8 border-t border-dinara-line">
-            <img src="/team/aisha.jpg" alt="Айша Торткара" width="88" height="88" class="w-[5.5rem] h-[5.5rem] rounded-2xl object-cover bg-dinara-surface" loading="lazy">
+            <img src="/team/aisha.jpg" alt="Айша Торткара (Aisha Tortkara)" width="88" height="88" class="w-[5.5rem] h-[5.5rem] rounded-2xl object-cover bg-dinara-surface" loading="lazy">
             <div>
               <h3 class="text-xl font-semibold" data-i18n="team_a_n">Айша Торткара</h3>
               <p class="text-sm font-medium text-dinara-link mt-0.5">Co-Founder &amp; Finance Lead</p>
