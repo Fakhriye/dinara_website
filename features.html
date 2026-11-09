@@ -3,69 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="title">Возможности | Dinara AI</title>
+  <title data-i18n="title_features">Возможности — Dinara AI</title>
+  <meta name="description" content="Как Dinara AI работает с 1С: прямая интеграция через HTTP-сервисы, аналитика через LLM и защита финансовых данных." />
+  <meta property="og:title" content="Возможности — Dinara AI" />
+  <meta property="og:description" content="Как Dinara AI работает с 1С: прямая интеграция через HTTP-сервисы, аналитика через LLM и защита финансовых данных." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/logo.png" />
+  <meta name="theme-color" content="#0A192F" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:text-dinara-bg focus:px-4 focus:py-2 focus:rounded-lg" data-i18n="skip">Перейти к содержанию</a>
 
-  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full border-b border-dinara-surface">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="/logo.png" alt="Dinara AI Logo" class="w-10 h-10 rounded-xl bg-white p-1">
-      <span class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
-    </a>
-    <div class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="index.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_home">Главная</a>
-      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
-      <a href="about.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
+  <header class="sticky top-0 z-40 bg-dinara-bg/85 backdrop-blur border-b border-dinara-line">
+    <nav class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4" aria-label="Main">
+      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="Dinara AI">
+        <img src="/logo.png" alt="" class="w-9 h-9 rounded-xl bg-white p-1" width="40" height="40">
+        <span class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+        <a href="/" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_home">Главная</a>
+        <a href="/features.html" class="text-white transition-colors" aria-current="page" data-i18n="nav_features">Возможности</a>
+        <a href="/about.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_about">О компании</a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center rounded-lg border border-gray-800 bg-dinara-surface p-0.5" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
+          <button type="button" class="lang-btn" data-lang="kz" aria-pressed="false">KZ</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="hidden lg:inline-flex h-9 items-center px-5 rounded-full bg-white text-dinara-bg text-sm font-semibold hover:bg-gray-200 transition-colors" data-i18n="nav_contact">Связаться</a>
+        <button type="button" data-menu-toggle class="md:hidden h-9 w-9 grid place-items-center rounded-lg border border-gray-800 bg-dinara-surface" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-dinara-line bg-dinara-bg px-5 pb-5">
+      <a href="/" class="block py-3 border-b border-dinara-line text-gray-400" data-i18n="nav_home">Главная</a>
+      <a href="/features.html" class="block py-3 border-b border-dinara-line text-white font-semibold" aria-current="page" data-i18n="nav_features">Возможности</a>
+      <a href="/about.html" class="block py-3 border-b border-dinara-line text-gray-400" data-i18n="nav_about">О компании</a>
+      <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="mt-4 flex h-11 items-center justify-center rounded-full bg-white text-dinara-bg font-semibold" data-i18n="nav_contact">Связаться</a>
     </div>
-    <div class="flex items-center gap-4">
-      <button id="lang-switch" class="text-sm font-semibold uppercase bg-dinara-surface px-3 py-1.5 rounded-lg border border-gray-800 hover:border-dinara-accent transition">KZ</button>
-      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition" data-i18n="nav_contact">Связаться</a>
-    </div>
-  </nav>
+  </header>
 
-  <main class="max-w-7xl mx-auto px-8 py-20 flex-grow">
-    <div class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        <span data-i18n="feat_title_1">Архитектура и</span> <span class="text-dinara-accent" data-i18n="feat_title_2">Функции</span>
-      </h1>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg" data-i18n="feat_desc">Прямая интеграция с 1С без посредников, мощная аналитика и безопасность банковского уровня.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 mb-20">
-      <div class="bg-dinara-surface p-8 rounded-2xl">
-        <h3 class="text-2xl font-semibold mb-3" data-i18n="f1_t">Прямая связь с 1С</h3>
-        <p class="text-gray-400" data-i18n="f1_d">Бот подключается к вашей базе 1С через нативные HTTP-сервисы. Вы можете проверять остатки, цены и создавать заказы или счета на оплату прямо из Telegram, не открывая конфигурацию 1С.</p>
+  <main id="main" class="flex-grow">
+    <section>
+      <div class="max-w-6xl mx-auto px-5 md:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
+        <h1 class="text-[2.3rem] sm:text-5xl lg:text-[3.4rem] leading-[1.06] font-bold tracking-tight max-w-3xl" data-i18n="feat_title">Возможности и архитектура</h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed" data-i18n="feat_desc">Прямая интеграция с 1С без посредников, аналитика на основе ИИ и защита данных банковского уровня.</p>
       </div>
-      <div class="bg-dinara-surface p-8 rounded-2xl">
-        <h3 class="text-2xl font-semibold mb-3" data-i18n="f2_t">Аналитика через LLM</h3>
-        <p class="text-gray-400" data-i18n="f2_d">Нейросеть не сжигает токены на вытаскивание сырых данных. Она анализирует уже структурированные отчеты из 1С: динамику продаж, средний чек и предоставляет вам готовые бизнес-выводы.</p>
-      </div>
-      <div class="bg-dinara-surface p-8 rounded-2xl">
-        <h3 class="text-2xl font-semibold mb-3" data-i18n="f3_t">Максимальная безопасность</h3>
-        <p class="text-gray-400" data-i18n="f3_d">Финансовые данные не покидают контур компании. Используются секретные ключи API, строгая аутентификация, а также системные запреты Telegram на пересылку и скриншоты.</p>
-      </div>
-      <div class="bg-dinara-surface p-8 rounded-2xl">
-        <h3 class="text-2xl font-semibold mb-3 text-dinara-accent" data-i18n="f4_t">Почему нет аналогов?</h3>
-        <p class="text-gray-400" data-i18n="f4_d">В СНГ большинство бизнеса использует базовую «1С: Бухгалтерия», где нет CRM и удобных регистров. Dinara AI надстраивает функционал CRM и личных кабинетов поверх обычной Бухгалтерии, экономя компаниям миллионы на переходе к тяжелым ERP-системам.</p>
-      </div>
-    </div>
-  </main>
-
-  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-      <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="Dinara AI Logo" class="w-8 h-8 rounded-lg bg-white p-1">
-        <div>
-          <div class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
-          <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+    </section>
+    <section>
+      <div class="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-20">
+        <div class="border-b border-dinara-line">
+          <article class="py-10 md:py-12 grid gap-5 md:grid-cols-[3rem_1fr_1.4fr] md:gap-8 border-t border-dinara-line">
+            <div class="w-12 h-12 rounded-xl bg-dinara-accent/15 text-dinara-link grid place-items-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7ZM12 16v5"/></svg></div>
+            <h2 class="text-2xl font-bold tracking-tight" data-i18n="f1_t">Прямая связь с 1С</h2>
+            <p class="text-gray-400 text-lg leading-relaxed" data-i18n="f1_d">Бот подключается к вашей базе 1С через нативные HTTP-сервисы. Проверяйте остатки и цены, создавайте заказы и счета на оплату прямо из Telegram, не открывая 1С.</p>
+          </article>
+          <article class="py-10 md:py-12 grid gap-5 md:grid-cols-[3rem_1fr_1.4fr] md:gap-8 border-t border-dinara-line">
+            <div class="w-12 h-12 rounded-xl bg-dinara-accent/15 text-dinara-link grid place-items-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+            <h2 class="text-2xl font-bold tracking-tight" data-i18n="f2_t">Аналитика через LLM</h2>
+            <p class="text-gray-400 text-lg leading-relaxed" data-i18n="f2_d">Нейросеть не тратит ресурсы на выгрузку сырых данных. Она анализирует уже структурированные отчёты 1С — динамику продаж, средний чек — и даёт готовые выводы для бизнеса.</p>
+          </article>
+          <article class="py-10 md:py-12 grid gap-5 md:grid-cols-[3rem_1fr_1.4fr] md:gap-8 border-t border-dinara-line">
+            <div class="w-12 h-12 rounded-xl bg-dinara-accent/15 text-dinara-link grid place-items-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h2 class="text-2xl font-bold tracking-tight" data-i18n="f3_t">Безопасность данных</h2>
+            <p class="text-gray-400 text-lg leading-relaxed" data-i18n="f3_d">Финансовые данные не покидают контур компании. Секретные API-ключи, строгая аутентификация и системные запреты Telegram на пересылку и скриншоты.</p>
+          </article>
         </div>
       </div>
-      <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-400 items-center">
-        <a href="mailto:contact@dinara.company" class="hover:text-dinara-accent transition">contact@dinara.company</a>
-        <span class="hidden sm:inline text-gray-700">|</span>
-        <span data-i18n="footer_location">Алматы, Казахстан</span>
+    </section>
+    <section class="bg-dinara-surface border-y border-dinara-line">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-24 grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-dinara-accent/15 text-dinara-link grid place-items-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+          <h2 class="mt-6 text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight" data-i18n="f4_t">Почему у Dinara нет аналогов</h2>
+        </div>
+        <div>
+          <p class="text-lg leading-relaxed text-gray-200" data-i18n="f4_d">В СНГ большинство компаний работает в базовой «1С:Бухгалтерии», где нет CRM и удобных регистров. Dinara AI добавляет функции CRM и личных кабинетов поверх обычной Бухгалтерии — без дорогого перехода на тяжёлые ERP-системы.</p>
+          <dl class="mt-10 grid sm:grid-cols-2 gap-px bg-dinara-line rounded-2xl overflow-hidden ring-1 ring-dinara-line">
+            <div class="bg-dinara-bg p-6">
+              <dt class="text-sm text-gray-400" data-i18n="cmp_a_t">Переход на ERP</dt>
+              <dd class="mt-2 font-semibold" data-i18n="cmp_a_d">Месяцы внедрения, новая система и обучение всей команды</dd>
+            </div>
+            <div class="bg-dinara-bg p-6">
+              <dt class="text-sm text-dinara-link font-medium" data-i18n="cmp_b_t">Dinara поверх 1С</dt>
+              <dd class="mt-2 font-semibold" data-i18n="cmp_b_d">Ваша база остаётся прежней, сотрудники работают в привычном Telegram</dd>
+            </div>
+          </dl>
+        </div>
       </div>
+    </section>
+
+    <section class="">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-24 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-end">
+        <div>
+          <h2 class="text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight max-w-xl" data-i18n="cta_h">Покажем Dinara на примере вашей компании</h2>
+          <p class="mt-5 text-lg text-gray-400 max-w-xl leading-relaxed" data-i18n="cta_d">Напишите нам — договоримся о демо и обсудим, какие задачи из 1С стоит перенести в Telegram.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 md:justify-self-end">
+          <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-accent text-white font-semibold hover:bg-blue-600 transition-colors shadow-[0_0_25px_rgba(0,122,255,0.3)]" data-i18n="btn_demo">Запросить демо</a>
+          <a href="mailto:contact@dinara.company" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-surface border border-gray-800 text-white font-semibold hover:border-gray-600 transition-colors">contact@dinara.company</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dinara-line mt-auto">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="Dinara AI">
+          <img src="/logo.png" alt="" class="w-9 h-9 rounded-xl bg-white p-1" width="40" height="40">
+        <span class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-gray-400" data-i18n="footer_tagline">Telegram-ассистент для бизнеса на 1С: отчёты, документы и аналитика в одном чате.</p>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold" data-i18n="footer_nav">Сайт</h2>
+        <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+          <li><a href="/" class="hover:text-white" data-i18n="nav_home">Главная</a></li>
+          <li><a href="/features.html" class="hover:text-white" data-i18n="nav_features">Возможности</a></li>
+          <li><a href="/about.html" class="hover:text-white" data-i18n="nav_about">О компании</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold" data-i18n="footer_contacts">Контакты</h2>
+        <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+          <li><a href="mailto:contact@dinara.company" class="hover:text-white">contact@dinara.company</a></li>
+          <li data-i18n="footer_location">Алматы, Казахстан</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-dinara-line">
+      <p class="max-w-6xl mx-auto px-5 md:px-8 py-6 text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
     </div>
   </footer>
 

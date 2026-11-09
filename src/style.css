@@ -1,7 +1,106 @@
 @import "tailwindcss";
 
+/* ---------- Design tokens (original Dinara colours) ---------- */
 @theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
   --color-dinara-bg: #0A192F;       /* Глубокий Navy Blue для фона */
   --color-dinara-surface: #112240;  /* Чуть более светлый синий для карточек и секций */
   --color-dinara-accent: #007AFF;   /* Акцентный синий Apple */
+  --color-dinara-line: #1d3152;     /* Разделители на тёмном фоне */
+  --color-dinara-link: #4c9dff;     /* Синий для мелкого текста на тёмном фоне */
+
+  --color-ink: #0d1b2e;             /* Текст внутри светлого чата */
+  --color-ledger: #178a5c;          /* Зелёный «проведено» в чате */
+
+  --animate-msg: msg-in 360ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--color-dinara-accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-dinara-link); outline-offset: 3px; border-radius: 6px; }
+  .num { font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+  /* Переключатель языка RU / KZ / EN */
+  .lang-btn {
+    height: 2rem; min-width: 2.2rem; padding: 0 .5rem;
+    border-radius: .45rem;
+    font-size: .78rem; font-weight: 600;
+    color: #9ca3af;
+    transition: color .15s, background-color .15s;
+  }
+  .lang-btn:hover { color: #fff; }
+  .lang-btn[aria-pressed="true"] { background: rgb(255 255 255 / .12); color: #fff; }
+
+  /* Telegram-style chat demo */
+  .chat {
+    background:
+      radial-gradient(circle at 20% 10%, #d7e8f5 0, transparent 40%),
+      radial-gradient(circle at 90% 80%, #dcefe4 0, transparent 45%),
+      #cfdfe9;
+  }
+  .bubble {
+    position: relative;
+    max-width: 86%;
+    padding: .6rem .8rem .45rem;
+    border-radius: 16px;
+    font-size: .9rem;
+    line-height: 1.4;
+    box-shadow: 0 1px 1px rgb(13 27 46 / .12);
+  }
+  .bubble-out { margin-left: auto; background: #e2f7cb; border-bottom-right-radius: 4px; }
+  .bubble-in  { background: #fff; border-bottom-left-radius: 4px; }
+  .bubble-time { display: block; text-align: right; font-size: .68rem; color: #7c8a99; margin-top: .15rem; }
+  .bubble-out .bubble-time { color: #5c9a4a; }
+
+  /* Сообщения в стиле тёмной темы Telegram (секция «Что можно спросить») */
+  .bubble-dark {
+    padding: .65rem .85rem;
+    border-radius: 16px;
+    border-bottom-right-radius: 4px;
+    background: #2b5278;
+    color: #fff;
+    font-size: .95rem;
+    line-height: 1.4;
+  }
+
+  .tg-button {
+    display: flex; align-items: center; justify-content: center;
+    padding: .5rem; border-radius: 10px;
+    background: rgb(255 255 255 / .55); color: #1b5f99;
+    font-size: .8rem; font-weight: 600;
+    box-shadow: 0 1px 1px rgb(13 27 46 / .08);
+  }
+
+  .typing span {
+    width: 6px; height: 6px; border-radius: 999px; background: #8fa0b2;
+    display: inline-block; animation: typing 1s infinite ease-in-out;
+  }
+  .typing span:nth-child(2) { animation-delay: .15s; }
+  .typing span:nth-child(3) { animation-delay: .3s; }
+}
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* Пока JS проигрывает диалог, сообщения скрыты; без JS всё видно сразу */
+.chat.is-playing [data-step] { display: none; }
+.chat [data-step].is-shown { display: block; animation: var(--animate-msg); }
+.chat .typing-row { display: none; }
+.chat .typing-row.is-shown { display: flex; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .chat [data-step].is-shown { animation: none; }
+  .typing span { animation: none; }
 }

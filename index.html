@@ -1,89 +1,258 @@
 <!DOCTYPE html>
-<html lang="ru" id="html-root">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="title">Dinara AI | Интеллектуальный помощник для 1С</title>
+  <title data-i18n="title_home">Dinara AI — Telegram-ассистент для 1С</title>
+  <meta name="description" content="Dinara AI подключается к вашей 1С и отвечает в Telegram: остатки, цены, счета на оплату и аналитика продаж прямо со смартфона." />
+  <meta property="og:title" content="Dinara AI — Telegram-ассистент для 1С" />
+  <meta property="og:description" content="Dinara AI подключается к вашей 1С и отвечает в Telegram: остатки, цены, счета на оплату и аналитика продаж прямо со смартфона." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/logo.png" />
+  <meta name="theme-color" content="#0A192F" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body class="bg-dinara-bg text-white font-sans antialiased flex flex-col min-h-screen">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:text-dinara-bg focus:px-4 focus:py-2 focus:rounded-lg" data-i18n="skip">Перейти к содержанию</a>
 
-  <!-- Навигация с логотипом -->
-  <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="/logo.png" alt="Dinara AI Logo" class="w-10 h-10 rounded-xl bg-white p-1">
-      <span class="text-2xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
-    </a>
-    <div class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="index.html" class="text-white hover:text-dinara-accent transition" data-i18n="nav_home">Главная</a>
-      <a href="features.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_features">Возможности</a>
-      <a href="about.html" class="text-gray-400 hover:text-dinara-accent transition" data-i18n="nav_about">О компании</a>
-    </div>
-    <div class="flex items-center gap-4">
-      <button id="lang-switch" class="text-sm font-semibold uppercase bg-dinara-surface px-3 py-1.5 rounded-lg border border-gray-800 hover:border-dinara-accent transition">KZ</button>
-      <a href="mailto:contact@dinara.company" class="bg-white text-dinara-bg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition" data-i18n="nav_contact">Связаться</a>
-    </div>
-  </nav>
-
-  <!-- Главный Hero блок -->
-  <main class="max-w-7xl mx-auto px-8 py-16 md:py-24 text-center flex-grow">
-    <div class="inline-flex items-center gap-2 bg-dinara-surface border border-gray-800 px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-8 text-gray-300">
-      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-      <span data-i18n="badge_text">Уже заключены сделки с 8 компаниями на $24,000</span>
-    </div>
-
-    <h1 class="text-4xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
-      <span data-i18n="hero_title_1">Управление бизнесом</span> <br />
-      <span class="text-dinara-accent" data-i18n="hero_title_2">в один клик через ИИ.</span>
-    </h1>
-    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-i18n="hero_desc">
-      Интеллектуальный Telegram-бот, который нативно интегрируется с вашей 1С. Создавайте отчеты, управляйте счетами и анализируйте продажи прямо со смартфона.
-    </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="mailto:contact@dinara.company" class="bg-dinara-accent text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-600 transition shadow-[0_0_25px_rgba(0,122,255,0.3)]" data-i18n="btn_apply">
-        Оставить заявку
+  <header class="sticky top-0 z-40 bg-dinara-bg/85 backdrop-blur border-b border-dinara-line">
+    <nav class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4" aria-label="Main">
+      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="Dinara AI">
+        <img src="/logo.png" alt="" class="w-9 h-9 rounded-xl bg-white p-1" width="40" height="40">
+        <span class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
       </a>
-      <a href="features.html" class="bg-dinara-surface border border-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:border-gray-600 transition" data-i18n="btn_features">
-        Узнать больше
-      </a>
+      <div class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+        <a href="/" class="text-white transition-colors" aria-current="page" data-i18n="nav_home">Главная</a>
+        <a href="/features.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_features">Возможности</a>
+        <a href="/about.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_about">О компании</a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center rounded-lg border border-gray-800 bg-dinara-surface p-0.5" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
+          <button type="button" class="lang-btn" data-lang="kz" aria-pressed="false">KZ</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="hidden lg:inline-flex h-9 items-center px-5 rounded-full bg-white text-dinara-bg text-sm font-semibold hover:bg-gray-200 transition-colors" data-i18n="nav_contact">Связаться</a>
+        <button type="button" data-menu-toggle class="md:hidden h-9 w-9 grid place-items-center rounded-lg border border-gray-800 bg-dinara-surface" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-dinara-line bg-dinara-bg px-5 pb-5">
+      <a href="/" class="block py-3 border-b border-dinara-line text-white font-semibold" aria-current="page" data-i18n="nav_home">Главная</a>
+      <a href="/features.html" class="block py-3 border-b border-dinara-line text-gray-400" data-i18n="nav_features">Возможности</a>
+      <a href="/about.html" class="block py-3 border-b border-dinara-line text-gray-400" data-i18n="nav_about">О компании</a>
+      <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="mt-4 flex h-11 items-center justify-center rounded-full bg-white text-dinara-bg font-semibold" data-i18n="nav_contact">Связаться</a>
     </div>
-  </main>
+  </header>
 
-  <!-- Блок со счетчиками -->
-  <section id="stats" class="bg-dinara-surface border-y border-gray-800/60 py-16">
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div>
-        <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="24000">0</span>$</div>
-        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_1">Объем оцифрованных процессов</div>
-      </div>
-      <div>
-        <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="8">0</span>+</div>
-        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_2">Крупных компаний доверяют нам</div>
-      </div>
-      <div>
-        <div class="text-5xl font-bold text-white mb-2"><span class="counter" data-target="80">0</span>%</div>
-        <div class="text-sm text-gray-400 font-medium" data-i18n="stat_3">Экономии времени на рутине</div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-dinara-surface py-12 px-8 mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-      <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="Dinara AI Logo" class="w-8 h-8 rounded-lg bg-white p-1">
+  <main id="main" class="flex-grow">
+    <section class="overflow-hidden">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 pt-14 pb-16 md:pt-20 md:pb-24 grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div>
-          <div class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</div>
-          <p class="text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
+          <h1 class="text-[2.3rem] sm:text-5xl lg:text-[3.6rem] leading-[1.06] font-bold tracking-tight">
+            <span data-i18n="hero_title_1">Остатки, счета и продажи из 1С —</span>
+            <span class="text-dinara-accent" data-i18n="hero_title_2">прямо в Telegram</span>
+          </h1>
+          <p class="mt-6 text-lg text-gray-400 max-w-[34rem] leading-relaxed" data-i18n="hero_desc">Dinara AI подключается к вашей базе 1С. Спросите бота обычным языком — он пришлёт отчёт или создаст документ, пока вы не за компьютером.</p>
+          <div class="mt-9 flex flex-col sm:flex-row gap-3">
+            <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-accent text-white font-semibold hover:bg-blue-600 transition-colors shadow-[0_0_25px_rgba(0,122,255,0.3)]" data-i18n="btn_demo">Запросить демо</a>
+            <a href="#how" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-surface border border-gray-800 text-white font-semibold hover:border-gray-600 transition-colors" data-i18n="btn_how">Как это работает</a>
+          </div>
+          <p class="mt-8 text-sm text-gray-500 max-w-md" data-i18n="hero_note">Работает поверх вашей «1С:Бухгалтерии» — без перехода на тяжёлую ERP-систему.</p>
+        </div>
+        
+        <figure class="relative">
+          <div class="rounded-[22px] overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/50 bg-white text-ink">
+            <div class="flex items-center gap-3 px-4 h-14 bg-white border-b border-gray-200">
+              <img src="/logo.png" alt="" class="w-9 h-9 rounded-full ring-1 ring-gray-200" width="36" height="36">
+              <div class="leading-tight">
+                <div class="font-semibold text-[15px]">Dinara AI</div>
+                <div class="text-xs text-[#1d6fb8]" data-i18n="chat_status">бот · онлайн</div>
+              </div>
+            </div>
+            <div class="chat px-3.5 py-4 space-y-2.5 min-h-[400px]" data-chat>
+              <div data-step="1" class="bubble bubble-out"><span data-i18n="chat_q1">Остатки цемента М400 на складе Алматы?</span><span class="bubble-time">10:24</span></div>
+              <div data-step="2" class="bubble bubble-in">
+                <div class="font-semibold text-[13px] text-[#1d6fb8]" data-i18n="chat_a1_h">Склад «Алматы-1»</div>
+                <dl class="mt-1.5 grid grid-cols-[1fr_auto] gap-x-6 gap-y-0.5 text-[13px] num">
+                  <dt class="text-gray-500" data-i18n="chat_a1_r1">В наличии</dt><dd class="text-right font-medium" data-i18n="chat_a1_v1">1 240 мешков</dd>
+                  <dt class="text-gray-500" data-i18n="chat_a1_r2">В резерве</dt><dd class="text-right font-medium" data-i18n="chat_a1_v2">300 мешков</dd>
+                  <dt class="font-semibold" data-i18n="chat_a1_r3">Свободно</dt><dd class="text-right font-semibold text-ledger" data-i18n="chat_a1_v3">940 мешков</dd>
+                </dl>
+                <span class="bubble-time">10:24</span>
+              </div>
+              <div data-step="3" class="bubble bubble-out"><span data-i18n="chat_q2">Выставь счёт ТОО «Береке» на 200 мешков</span><span class="bubble-time">10:25</span></div>
+              <div data-step="4">
+                <div class="bubble bubble-in">
+                  <div class="flex items-start gap-2.5">
+                    <div class="w-9 h-11 shrink-0 rounded-md bg-[#e3effa] text-[#1d6fb8] grid place-items-center text-[10px] font-bold">PDF</div>
+                    <div>
+                      <div class="font-semibold text-[13px]" data-i18n="chat_a2_h">Счёт на оплату № 0412</div>
+                      <div class="text-[13px] text-gray-500 num"><span data-i18n="chat_a2_calc">200 × 2 450 ₸ =</span> <span class="text-ink font-semibold" data-i18n="chat_a2_total">490 000 ₸</span></div>
+                      <div class="mt-1 inline-flex items-center gap-1 text-[12px] font-medium text-ledger">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg>
+                        <span data-i18n="chat_a2_s">Создан в 1С</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="bubble-time">10:25</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1.5 mt-1.5 max-w-[86%]">
+                  <span class="tg-button" data-i18n="chat_b1">Отправить клиенту</span>
+                  <span class="tg-button" data-i18n="chat_b2">Открыть в 1С</span>
+                </div>
+              </div>
+              <div class="typing-row bubble bubble-in w-fit gap-1 items-center py-3" aria-hidden="true"><span class="typing inline-flex gap-1"><span></span><span></span><span></span></span></div>
+            </div>
+          </div>
+          <figcaption class="mt-3 text-sm text-gray-500" data-i18n="chat_caption">Пример диалога. Данные условные.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="stats" class="bg-dinara-surface border-y border-dinara-line">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-dinara-line">
+        
+        <div class="py-7 sm:py-9 sm:pr-8">
+          <div class="text-4xl md:text-5xl font-bold tracking-tight num">$<span class="counter" data-target="24000">24 000</span></div>
+          <div class="mt-2 text-gray-400" data-i18n="stat_1">сумма подписанных контрактов</div>
+        </div>
+        
+        <div class="py-7 sm:py-9 sm:px-8">
+          <div class="text-4xl md:text-5xl font-bold tracking-tight num"><span class="counter" data-target="8">8</span>+</div>
+          <div class="mt-2 text-gray-400" data-i18n="stat_2">крупных компаний уже с нами</div>
+        </div>
+        
+        <div class="py-7 sm:py-9 sm:pl-8">
+          <div class="text-4xl md:text-5xl font-bold tracking-tight num"><span class="counter" data-target="80">80</span>%</div>
+          <div class="mt-2 text-gray-400" data-i18n="stat_3">экономии времени на рутине</div>
         </div>
       </div>
-      <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-400 items-center">
-        <a href="mailto:contact@dinara.company" class="hover:text-dinara-accent transition">contact@dinara.company</a>
-        <span class="hidden sm:inline text-gray-700">|</span>
-        <span data-i18n="footer_location">Алматы, Казахстан</span>
+    </section>
+
+    <section id="how" class="scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
+        <h2 class="text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight max-w-xl" data-i18n="how_h">Как это работает</h2>
+        <ol class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+          <li class="border-t-2 border-dinara-accent pt-6">
+            <div class="text-sm font-semibold text-dinara-link num">1</div>
+            <h3 class="mt-3 text-xl font-semibold" data-i18n="s1_t">Подключаем вашу 1С</h3>
+            <p class="mt-3 text-gray-400 leading-relaxed" data-i18n="s1_d">Настраиваем нативные HTTP-сервисы в вашей базе. Данные остаются в контуре компании.</p>
+          </li>
+          <li class="border-t-2 border-dinara-accent pt-6">
+            <div class="text-sm font-semibold text-dinara-link num">2</div>
+            <h3 class="mt-3 text-xl font-semibold" data-i18n="s2_t">Сотрудники пишут боту</h3>
+            <p class="mt-3 text-gray-400 leading-relaxed" data-i18n="s2_d">Руководитель, бухгалтер или менеджер задаёт вопрос обычным языком — как коллеге в чате.</p>
+          </li>
+          <li class="border-t-2 border-dinara-accent pt-6">
+            <div class="text-sm font-semibold text-dinara-link num">3</div>
+            <h3 class="mt-3 text-xl font-semibold" data-i18n="s3_t">Dinara отвечает и действует</h3>
+            <p class="mt-3 text-gray-400 leading-relaxed" data-i18n="s3_d">Бот присылает отчёт с выводами или создаёт документ в 1С: заказ покупателя, счёт на оплату.</p>
+          </li>
+        </ol>
       </div>
+    </section>
+
+    <section class="bg-dinara-surface border-y border-dinara-line">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 grid gap-12 lg:grid-cols-[1fr_1.6fr]">
+        <div>
+          <h2 class="text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight" data-i18n="ask_h">Что можно спросить у Dinara</h2>
+          <p class="mt-5 text-lg text-gray-400 leading-relaxed max-w-sm" data-i18n="ask_d">Бот понимает обычные вопросы — не нужно знать, где в 1С лежит нужный отчёт.</p>
+          <a href="/features.html" class="mt-7 inline-flex font-semibold text-dinara-link hover:text-white underline underline-offset-4 decoration-2 decoration-dinara-link/40" data-i18n="ask_link">Все возможности</a>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-3 sm:gap-6">
+          <div>
+            <div class="flex items-center gap-2.5 text-dinara-link"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg><h3 class="font-semibold text-white" data-i18n="ask_g1">Склад и цены</h3></div>
+            <ul class="mt-4 space-y-2.5">
+              <li class="bubble-dark" data-i18n="ask_g1_1">Сколько свободного товара на складе?</li>
+              <li class="bubble-dark" data-i18n="ask_g1_2">Какая цена у этой позиции для оптового клиента?</li>
+            </ul>
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5 text-dinara-link"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><h3 class="font-semibold text-white" data-i18n="ask_g2">Документы</h3></div>
+            <ul class="mt-4 space-y-2.5">
+              <li class="bubble-dark" data-i18n="ask_g2_1">Создай заказ покупателя</li>
+              <li class="bubble-dark" data-i18n="ask_g2_2">Выставь счёт на оплату и пришли PDF</li>
+            </ul>
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5 text-dinara-link"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3 class="font-semibold text-white" data-i18n="ask_g3">Аналитика</h3></div>
+            <ul class="mt-4 space-y-2.5">
+              <li class="bubble-dark" data-i18n="ask_g3_1">Как изменились продажи за месяц?</li>
+              <li class="bubble-dark" data-i18n="ask_g3_2">Какой средний чек в этом квартале?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 grid gap-12 lg:grid-cols-2 lg:items-start">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-dinara-accent/15 text-dinara-link grid place-items-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h2 class="mt-6 text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight max-w-lg" data-i18n="sec_h">Финансовые данные не покидают компанию</h2>
+          <p class="mt-5 text-lg text-gray-400 leading-relaxed max-w-lg" data-i18n="sec_d">Мы подключаемся к 1С так, чтобы бухгалтерия оставалась под вашим контролем: доступ получают только те, кому вы его выдали.</p>
+        </div>
+        <ul class="divide-y divide-dinara-line border-y border-dinara-line">
+          <li class="flex gap-3 py-5"><svg class="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span class="text-gray-200" data-i18n="sec_1">Отдельные секретные API-ключи для каждой базы</span></li>
+          <li class="flex gap-3 py-5"><svg class="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span class="text-gray-200" data-i18n="sec_2">Строгая аутентификация: бот отвечает только авторизованным сотрудникам</span></li>
+          <li class="flex gap-3 py-5"><svg class="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span class="text-gray-200" data-i18n="sec_3">Системный запрет Telegram на пересылку и скриншоты</span></li>
+          <li class="flex gap-3 py-5"><svg class="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span class="text-gray-200" data-i18n="sec_4">ИИ работает с готовыми отчётами 1С, а не с сырыми данными</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-dinara-surface border-y border-dinara-line">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-24 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-end">
+        <div>
+          <h2 class="text-3xl md:text-[2.6rem] leading-[1.1] font-bold tracking-tight max-w-xl" data-i18n="cta_h">Покажем Dinara на примере вашей компании</h2>
+          <p class="mt-5 text-lg text-gray-400 max-w-xl leading-relaxed" data-i18n="cta_d">Напишите нам — договоримся о демо и обсудим, какие задачи из 1С стоит перенести в Telegram.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 md:justify-self-end">
+          <a href="mailto:contact@dinara.company?subject=Dinara%20AI%20demo" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-accent text-white font-semibold hover:bg-blue-600 transition-colors shadow-[0_0_25px_rgba(0,122,255,0.3)]" data-i18n="btn_demo">Запросить демо</a>
+          <a href="mailto:contact@dinara.company" class="inline-flex h-12 items-center justify-center px-7 rounded-full bg-dinara-bg border border-gray-800 text-white font-semibold hover:border-gray-600 transition-colors">contact@dinara.company</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dinara-line mt-auto">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="Dinara AI">
+          <img src="/logo.png" alt="" class="w-9 h-9 rounded-xl bg-white p-1" width="40" height="40">
+        <span class="text-xl font-bold tracking-tight">Dinara<span class="text-dinara-accent">.</span>AI</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-gray-400" data-i18n="footer_tagline">Telegram-ассистент для бизнеса на 1С: отчёты, документы и аналитика в одном чате.</p>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold" data-i18n="footer_nav">Сайт</h2>
+        <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+          <li><a href="/" class="hover:text-white" data-i18n="nav_home">Главная</a></li>
+          <li><a href="/features.html" class="hover:text-white" data-i18n="nav_features">Возможности</a></li>
+          <li><a href="/about.html" class="hover:text-white" data-i18n="nav_about">О компании</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold" data-i18n="footer_contacts">Контакты</h2>
+        <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+          <li><a href="mailto:contact@dinara.company" class="hover:text-white">contact@dinara.company</a></li>
+          <li data-i18n="footer_location">Алматы, Казахстан</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-dinara-line">
+      <p class="max-w-6xl mx-auto px-5 md:px-8 py-6 text-xs text-gray-500" data-i18n="footer_rights">© 2026 Dinara AI. Все права защищены.</p>
     </div>
   </footer>
 
   <script type="module" src="/src/main.js"></script>
 </body>
-</html
+</html>

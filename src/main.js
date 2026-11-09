@@ -1,156 +1,108 @@
-import './style.css'
+import translations from './translations.js'
 
-const translations = {
-  ru: {
-    title: "Dinara AI | Интеллектуальный помощник для 1С",
-    nav_home: "Главная",
-    nav_features: "Возможности",
-    nav_about: "О компании",
-    nav_contact: "Связаться",
-    badge_text: "Уже заключены сделки с 8 компаниями на $24,000",
-    hero_title_1: "Управление бизнесом",
-    hero_title_2: "в один клик через ИИ.",
-    hero_desc: "Интеллектуальный Telegram-бот, который нативно интегрируется с вашей 1С. Создавайте отчеты, управляйте счетами и анализируйте продажи прямо со смартфона.",
-    btn_apply: "Оставить заявку",
-    btn_features: "Узнать больше",
-    stat_1: "Объем оцифрованных процессов",
-    stat_2: "Крупных компаний доверяют нам",
-    stat_3: "Экономии времени на рутине",
-    footer_rights: "© 2026 Dinara AI. Все права защищены.",
-    footer_location: "Алматы, Казахстан",
-    
-    // Переводы для features.html
-    feat_title_1: "Архитектура и",
-    feat_title_2: "Функции",
-    feat_desc: "Прямая интеграция с 1С без посредников, мощная аналитика и безопасность банковского уровня.",
-    f1_t: "Прямая связь с 1С",
-    f1_d: "Бот подключается к вашей базе 1С через нативные HTTP-сервисы. Вы можете проверять остатки, цены и создавать заказы или счета на оплату прямо из Telegram, не открывая конфигурацию 1С.",
-    f2_t: "Аналитика через LLM",
-    f2_d: "Нейросеть не сжигает токены на вытаскивание сырых данных. Она анализирует уже структурированные отчеты из 1С: динамику продаж, средний чек и предоставляет вам готовые бизнес-выводы.",
-    f3_t: "Максимальная безопасность",
-    f3_d: "Финансовые данные не покидают контур компании. Используются секретные ключи API, строгая аутентификация, а также системные запреты Telegram на пересылку и скриншоты.",
-    f4_t: "Почему нет аналогов?",
-    f4_d: "В СНГ большинство бизнеса использует базовую «1С: Бухгалтерия», где нет CRM и удобных регистров. Dinara AI надстраивает функционал CRM и личных кабинетов поверх обычной Бухгалтерии, экономя компаниям миллионы на переходе к тяжелым ERP-системам.",
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // Переводы для about.html
-    ab_t1: "Освобождаем время для",
-    ab_t2: "важных задач",
-    ab_p1: "Идея создания Dinara AI родилась летом во время стажировки в аутсорсинговой бухгалтерской компании Impec Accounting. Работая над составлением отчетов, мы заметили, как много времени высококлассные специалисты тратят на рутинный сбор информации из документов.",
-    ab_p2: "Важные задачи, требующие критического и стратегического взгляда, часто откладывались из-за механической работы. Мы поняли, что ИИ не должен заменять бухгалтеров — он должен стать их главным инструментом, забирая на себя рутину.",
-    team_h: "Команда",
-    team_f_d: "Проходила стажировку как программист 1С. Объединила глубокие технические алгоритмы с реальными бизнес-процессами рынка СНГ, создав продукт, который решает задачи бизнеса изнутри.",
-    team_a_d: "Стажировалась в аутсорсинговой бухгалтерской компании Impec Accounting. На практике столкнулась с рутиной и неэффективностью ручного сбора отчетов, что стало импульсом к созданию продукта. Отвечает за продуктовую стратегию и внедрение.",
-    sup_h: "Поддержка",
-    sup_t_t: "Технический ментор",
-    sup_t_d: "Обеспечивает контроль архитектуры и безопасность связки HTTP-сервисов с базами 1С.",
-    sup_f_t: "Финансовый ментор",
-    sup_f_d: "Консультирует по вопросам учета и актуальности формируемых бизнес-моделей."
-  },
-  kz: {
-    title: "Dinara AI | 1С үшін зияткерлік көмекші",
-    nav_home: "Басты бет",
-    nav_features: "Мүмкіндіктер",
-    nav_about: "Компания туралы",
-    nav_contact: "Байланысу",
-    badge_text: "8 компаниямен $24,000 сомасына келісімшарт жасалды",
-    hero_title_1: "Бизнесті басқару",
-    hero_title_2: "ЖИ арқылы бір шертуде.",
-    hero_desc: "Сіздің 1С базаңызбен тікелей біріктірілетін Telegram бот. Смартфон арқылы есептер жасаңыз, шоттарды басқарыңыз және сатылымдарды талдаңыз.",
-    btn_apply: "Өтінім қалдыру",
-    btn_features: "Толығырақ білу",
-    stat_1: "Цифрландырылған процестер көлемі",
-    stat_2: "Ірі компаниялар бізге сенім білдіреді",
-    stat_3: "Рутиналық уақытты үнемдеу",
-    footer_rights: "© 2026 Dinara AI. Барлық құқықтар қорғалған.",
-    footer_location: "Алматы, Қазақстан",
+/* ---------- Язык (RU / KZ / EN) ---------- */
+const LANGS = ['ru', 'kz', 'en']
+const HTML_LANG = { ru: 'ru', kz: 'kk', en: 'en' }
 
-    feat_title_1: "Архитектура және",
-    feat_title_2: "Функциялар",
-    feat_desc: "1С-пен делдалсыз тікелей интеграция, мықты аналитика және банктік деңгейдегі қауіпсіздік.",
-    f1_t: "1С-пен тікелей байланыс",
-    f1_d: "Бот сіздің 1С базаңызға HTTP-сервистер арқылы қосылады. 1С конфигурациясын ашпай-ақ, тікелей Telegram-нан қалдықтарды, бағаларды тексеріп, шоттарды жасай аласыз.",
-    f2_t: "LLM арқылы аналитика",
-    f2_d: "Нейрожелі шикі деректерді шығаруға токендерді жұмсамайды. Ол 1С-тен дайын құрылымдалған есептерді талдап, сізге дайын бизнес-қорытындылар ұсынады.",
-    f3_t: "Максималды қауіпсіздік",
-    f3_d: "Қаржылық деректер компания контурынан шықпайды. Құпия API кілттері, қатаң аутентификация және Telegram-ның жүйелік тыйымдары қолданылады.",
-    f4_t: "Неге аналогтары жоқ?",
-    f4_d: "ТМД-да бизнестің көпшілігі CRM жоқ базалық «1С: Бухгалтерияны» пайдаланады. Dinara AI қарапайым Бухгалтерияның үстінен CRM функционалын қосып, компанияларға миллиондаған қаражатты үнемдейді.",
+function getSavedLang() {
+  try {
+    const saved = localStorage.getItem('dinara_lang')
+    return LANGS.includes(saved) ? saved : 'ru'
+  } catch { return 'ru' }
+}
+let currentLang = getSavedLang()
 
-    ab_t1: "Маңызды тапсырмалар үшін",
-    ab_t2: "уақытты босатамыз",
-    ab_p1: "Dinara AI құру идеясы жазда Impec Accounting аутсорсингтік бухгалтерлік компаниясында тағылымдамадан өту кезінде пайда болды. Біз жоғары білікті мамандардың рутинаға қаншама уақыт жұмсайтынын байқадық.",
-    ab_p2: "Сыни көзқарасты қажет ететін маңызды міндеттер механикалық жұмыстың кесірінен жиі кейінге қалдырылатын. ЖИ бухгалтерлерді алмастырмауы тиіс — ол рутинаны өз мойнына алып, олардың басты құралына айналуы керек.",
-    team_h: "Команда",
-    team_f_d: "1С бағдарламашысы ретінде тағылымдамадан өтті. ТМД нарығының шынайы бизнес-процестерімен терең техникалық алгоритмдерді біріктіріп, бизнестің мәселелерін ішінен шешетін өнім жасады.",
-    team_a_d: "Impec Accounting аутсорсингтік бухгалтерлік компаниясында тағылымдамадан өтті. Тәжірибе жүзінде есептерді қолмен жинаудың рутинасымен бетпе-бет келді. Өнім стратегиясы мен енгізуге жауап береді.",
-    sup_h: "Қолдау",
-    sup_t_t: "Техникалық ментор",
-    sup_t_d: "HTTP-сервистерінің 1С базаларымен байланысының архитектурасы мен қауіпсіздігін бақылауды қамтамасыз етеді.",
-    sup_f_t: "Қаржылық ментор",
-    sup_f_d: "Есепке алу және қалыптасатын бизнес-модельдердің өзектілігі мәселелері бойынша кеңес береді."
-  }
-};
-
-let currentLang = localStorage.getItem('dinara_lang') || 'ru';
+// 24000 → "24 000" (RU/KZ) или "24,000" (EN)
+const formatNumber = (n) =>
+  currentLang === 'en' ? n.toLocaleString('en-US') : n.toLocaleString('ru-RU').replace(/\u00a0/g, ' ')
 
 function applyTranslations(lang) {
-  const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      el.innerText = translations[lang][key];
-    }
-  });
-  
-  const langSwitch = document.getElementById('lang-switch');
-  if (langSwitch) {
-    langSwitch.innerText = lang === 'ru' ? 'KZ' : 'RU';
+  const dict = translations[lang] || translations.ru
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const value = dict[el.dataset.i18n]
+    if (value) el.textContent = value
+  })
+  document.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang))
+  })
+  document.querySelectorAll('.counter').forEach((el) => {
+    el.textContent = formatNumber(Number(el.dataset.target))
+  })
+  document.documentElement.lang = HTML_LANG[lang]
+}
+
+applyTranslations(currentLang)
+
+document.querySelectorAll('[data-lang]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.dataset.lang
+    try { localStorage.setItem('dinara_lang', currentLang) } catch { /* private mode */ }
+    applyTranslations(currentLang)
+  })
+})
+
+/* ---------- Мобильное меню ---------- */
+const menuBtn = document.querySelector('[data-menu-toggle]')
+const menu = document.getElementById('mobile-menu')
+if (menuBtn && menu) {
+  menuBtn.addEventListener('click', () => {
+    const open = menuBtn.getAttribute('aria-expanded') === 'true'
+    menuBtn.setAttribute('aria-expanded', String(!open))
+    menu.classList.toggle('hidden', open)
+  })
+}
+
+/* ---------- Счётчики ---------- */
+
+function animateCounter(el) {
+  const target = Number(el.dataset.target)
+  const duration = 1200
+  const start = performance.now()
+  const tick = (now) => {
+    const p = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - p, 3)
+    el.textContent = formatNumber(Math.round(target * eased))
+    if (p < 1) requestAnimationFrame(tick)
   }
-  document.documentElement.setAttribute('lang', lang);
+  requestAnimationFrame(tick)
 }
 
-applyTranslations(currentLang);
-
-const langSwitch = document.getElementById('lang-switch');
-if (langSwitch) {
-  langSwitch.addEventListener('click', () => {
-    currentLang = currentLang === 'ru' ? 'kz' : 'ru';
-    localStorage.setItem('dinara_lang', currentLang);
-    applyTranslations(currentLang);
-  });
+const stats = document.getElementById('stats')
+if (stats && !reduceMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+      entry.target.querySelectorAll('.counter').forEach(animateCounter)
+      io.unobserve(entry.target)
+    })
+  }, { threshold: 0.4 })
+  io.observe(stats)
 }
 
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
+/* ---------- Демо-диалог в hero ---------- */
+const chat = document.querySelector('[data-chat]')
+if (chat && !reduceMotion) {
+  const steps = [...chat.querySelectorAll('[data-step]')]
+  const typing = chat.querySelector('.typing-row')
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms))
 
-const animateCounters = () => {
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = target / speed;
+  chat.classList.add('is-playing')
 
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 15);
-      } else {
-        counter.innerText = target;
+  const play = async () => {
+    await wait(500)
+    for (const step of steps) {
+      const fromBot = !step.classList.contains('bubble-out')
+      if (fromBot && typing) {
+        chat.appendChild(typing)
+        typing.classList.add('is-shown')
+        await wait(1100)
+        typing.classList.remove('is-shown')
       }
-    };
-    updateCount();
-  });
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounters();
-      observer.unobserve(entry.target);
+      step.classList.add('is-shown')
+      await wait(fromBot ? 1300 : 700)
     }
-  });
-}, { threshold: 0.5 });
-
-const statsSection = document.getElementById('stats');
-if (statsSection) {
-  observer.observe(statsSection);
+  }
+  play()
 }
